@@ -28,7 +28,6 @@ else
   } || {
     echo "Fail to execute script/bootstrap.sh"
     exit -1
-}
   }
 fi
 

@@ -25,6 +25,7 @@
 #endif
 
 #include "model_deploy/common/include/paddle_deploy.h"
+#include "model_deploy/common/include/visualize.h"
 
 DEFINE_string(model_filename, "", "Path of det inference model");
 DEFINE_string(params_filename, "", "Path of det inference params");
@@ -36,6 +37,7 @@ DEFINE_int32(camera_id, 0, "Camera id");
 DEFINE_string(video_path, "", "Path of input video");
 DEFINE_bool(show_result, false, "show the result of each frame with a window");
 DEFINE_bool(save_result, false, "save the result of each frame to a video");
+DEFINE_string(save_dir, "output", "Path to save visualized image");
 DEFINE_int32(batch_size, 1, "Batch size of infering");
 DEFINE_bool(use_gpu, false, "Infering with GPU or CPU");
 DEFINE_int32(gpu_id, 0, "GPU card id");

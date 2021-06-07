@@ -38,7 +38,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "include/paddlex/results.h"
+#include "model_deploy/common/include/output_struct.h"
 
 #ifdef _WIN32
 #define OS_PATH_SEP "\\"
