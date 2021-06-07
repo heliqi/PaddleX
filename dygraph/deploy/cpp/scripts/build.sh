@@ -13,15 +13,24 @@ PADDLE_DIR=$(pwd)/paddle_inference
 WITH_STATIC_LIB=ON
 # CUDA 的 lib 路径
 CUDA_LIB=/usr/local/cuda/lib64
-# CUDNN 的 lib 路径
-CUDNN_LIB=/usr/lib/x86_64-linux-gnu
 
-{
-    bash $(pwd)/scripts/bootstrap.sh # 下载预编译版本的加密工具和opencv依赖库
-} || {
+arch=`uname -m`
+if [ $arch == "aarch64" ]; then
+  WITH_MKL=OFF
+  WITH_STATIC_LIB=OFF
+  # CUDNN 的 lib 路径
+  CUDNN_LIB=/usr/lib/aarch64-linux-gnu
+else
+  # CUDNN 的 lib 路径
+  CUDNN_LIB=/usr/lib/x86_64-linux-gnu
+  {
+    bash $(pwd)/scripts/bootstrap.sh # 下载预编译版本的opencv依赖库
+  } || {
     echo "Fail to execute script/bootstrap.sh"
     exit -1
 }
+  }
+fi
 
 # OPENCV 路径, 如果使用自带预编译版本可不修改
 OPENCV_DIR=$(pwd)/deps/opencv3.4.6gcc4.8ffmpeg/
