@@ -70,7 +70,7 @@ std::vector<int> GenerateColorMap(int num_class);
  * */
 cv::Mat Visualize(const cv::Mat& img,
                      const DetResult& results,
-                     const std::map<int, std::string>& labels,
+                     int labels_size,
                      float threshold = 0.5);
 
 /*

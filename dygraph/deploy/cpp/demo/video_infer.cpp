@@ -152,8 +152,23 @@ int main(int argc, char** argv) {
     std::cout << "result ======= cost time:" <<  ms << std::endl;
     std::cout << results[0] << std::endl;
     // Visualize results
-    cv::Mat vis_img = frame.clone();
-    // 自己根据需要处理下result，得到图片
+    /*
+      int labels_size = 0;
+      YAML::Node det_config = YAML::LoadFile(FLAGS_cfg_file);
+      for (const auto& label : det_config["label_list"]) {
+        labels_size += 1;
+      }
+    */
+    int labels_size = 2;  // 需要看模型的配置文件， 有多少个label
+    cv::Mat vis_img =
+        PaddleDeploy::Visualize(frame, results, labels_size, 0.5);
+    if (FLAGS_show_result || FLAGS_use_camera) {
+      cv::imshow("video_detector", vis_img);
+    }
+    if (FLAGS_save_result) {
+      video_out.write(vis_img);
+    }
+
     if (FLAGS_save_result) {
       video_out.write(vis_img);
     }
