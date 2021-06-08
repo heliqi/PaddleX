@@ -69,9 +69,9 @@ std::vector<int> GenerateColorMap(int num_class);
  * @return visualized image matrix
  * */
 cv::Mat Visualize(const cv::Mat& img,
-                     const DetResult& results,
-                     int labels_size,
-                     float threshold = 0.5);
+                  const DetResult& results,
+                  int labels_size,
+                  float threshold = 0.5);
 
 /*
  * @brief

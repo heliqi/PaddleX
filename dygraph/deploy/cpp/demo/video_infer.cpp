@@ -160,8 +160,9 @@ int main(int argc, char** argv) {
       }
     */
     int labels_size = 2;  // 需要看模型的配置文件， 有多少个label
+    PaddleDeploy::DetResult result = *(results[0].det_result);
     cv::Mat vis_img =
-        PaddleDeploy::Visualize(frame, results, labels_size, 0.5);
+        PaddleDeploy::Visualize(frame, result, labels_size, 0.5);
     if (FLAGS_show_result || FLAGS_use_camera) {
       cv::imshow("video_detector", vis_img);
     }
