@@ -139,7 +139,7 @@ output:
 
 ## 4 推理
 
-上述编译后会在`PaddleX/deploy/cpp/build/demo`目录下生成`model_infer`可执行二进制文件， 用于模型预测。以[ResNet50](https://bj.bcebos.com/paddlex/deploy2/models/resnet50_trt.tar.gz)为例，执行下面的指令进行预测：
+上述编译后会在`PaddleX/dygraph/deploy/cpp/build/demo`目录下生成`model_infer`可执行二进制文件， 用于模型预测。以[ResNet50](https://bj.bcebos.com/paddlex/deploy2/models/resnet50_trt.tar.gz)为例，执行下面的指令进行预测：
 
 ```
 ./build/demo/model_infer  --image resnet50/test.jpeg --cfg_file resnet50/deploy.yml --model_type clas --model_file resnet50/model.onnx
@@ -169,11 +169,11 @@ Classify(65	Saluki	0.91879153)
 
 **参数说明**
 
-| 参数名称   | 含义                                                         |
-| ---------- | ------------------------------------------------------------ |
-| model_file | onnx模型路径                                                 |
-| cfg_file   | Paddle Inference模型配置文件路径，如`resnet50/deploy.yml`    |
-| image      | 需要预测的单张图片的文件路径                                 |
-| image_list | 待预测的图片路径列表文件路径，列表里每一行是一张图片的文件路径 |
+| 参数名称   | 含义                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------- |
+| model_file | onnx模型路径                                                                                      |
+| cfg_file   | Paddle Inference模型配置文件路径，如`resnet50/deploy.yml`                                         |
+| image      | 需要预测的单张图片的文件路径                                                                      |
+| image_list | 待预测的图片路径列表文件路径，列表里每一行是一张图片的文件路径                                    |
 | model_type | 模型来源，det/seg/clas/paddlex，分别表示模型来源于PaddleDetection、PaddleSeg、PaddleClas和PaddleX |
-| gpu_id     | 使用GPU预测时的设备ID，默认为0                               |
+| gpu_id     | 使用GPU预测时的设备ID，默认为0                                                                    |

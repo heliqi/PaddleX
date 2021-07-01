@@ -19,6 +19,11 @@
 - [Windows编译指南](./docs/compile/paddle/windows.md)
 - [Jetson编译指南](./docs/compile/paddle/jetson.md)
 
+### 模型加载预测示例
+- [单卡加载模型预测示例](./docs/demo/model_infer.md)
+- [多卡加载模型预测示例](./docs/demo/multi_gpu_model_infer.md)
+- [PaddleInference集成TensorRT加载模型预测示例](./docs/demo/tensorrt_infer.md)
+
 ### 模型部署说明
 - [PaddleDetection部署指南](./docs/models/paddledetection.md)
 - [PaddleSeg部署指南](./docs/models/paddleseg.md)
